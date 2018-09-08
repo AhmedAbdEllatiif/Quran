@@ -12,6 +12,8 @@
         android:id="@+id/txtSoura"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        android:textSize="35sp"
+        />
 
 </android.support.constraint.ConstraintLayout>

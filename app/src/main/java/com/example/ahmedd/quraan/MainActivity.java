@@ -13,7 +13,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private MyAdapter adapter;
+    public static MyAdapter adapter;
     private List<ItemView> list;
     ItemView itemView;
 
@@ -36,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Hello", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this,Soura.class);
                 startActivity(intent);
+
+
+                switch (position){
+                    case (0): Soura.txtFile = "1.txt";break;
+                    case (1): Soura.txtFile = "2.txt";break;
+                    case (2): Soura.txtFile = "3.txt";break;
+
+                }
             }
         });
 

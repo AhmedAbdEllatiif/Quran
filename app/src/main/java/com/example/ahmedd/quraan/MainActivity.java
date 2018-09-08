@@ -1,5 +1,6 @@
 package com.example.ahmedd.quraan;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(int position, ItemView itemView) {
                 Toast.makeText(MainActivity.this, "Hello", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this,Soura.class);
+                startActivity(intent);
             }
         });
 

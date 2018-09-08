@@ -2,49 +2,50 @@ package com.example.ahmedd.quraan;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView txtHello;
-    Button btnShow;
+    private RecyclerView recyclerView;
+    private MyAdapter adapter;
+    private List<ItemView> list;
+    ItemView itemView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        txtHello = (TextView) findViewById(R.id.txtHello);
-        btnShow = (Button)findViewById(R.id.btnShow);
 
-      /*  btnShow.setOnClickListener(new View.OnClickListener() {
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        list = new ArrayList<>();
+        adapter = new MyAdapter(this, list);
+
+        adapter.setOnItemClickListener(new MyAdapter.onItemClickListener() {
             @Override
-            public void onClick(View view) {
-
-                String text = "";
-
-
-                try {
-                     InputStream  inputStream = getAssets().open("1.txt");
-                    int size = inputStream.available();
-                    byte[] buffer = new byte[size];
-                    inputStream.read(buffer);
-                    inputStream.close();
-                    text = new String(buffer);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                txtHello.setText(text);
-                Toast.makeText(getApplicationContext(),"The file read operation is finished successfully.",
-                        Toast.LENGTH_SHORT).show();
-
+            public void onClick(int position, ItemView itemView) {
+                Toast.makeText(MainActivity.this, "Hello", Toast.LENGTH_SHORT).show();
             }
         });
-*/
+
+
+
+    for (int i=0; i<115; i++ ){
+
+        ItemView itemView = new ItemView("Name " + (i+1));
+
+        list.add(itemView);
+    }
+
+    recyclerView.setAdapter(adapter);
 
     }
 }

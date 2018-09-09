@@ -17,6 +17,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -36,7 +37,6 @@ public class Soura extends AppCompatActivity {
         txtSoura.setMovementMethod(new ScrollingMovementMethod());
 
 
-        StringBuilder returnString = new StringBuilder();
         InputStream fIn = null;
         InputStreamReader isr = null;
         BufferedReader input = null;
@@ -67,6 +67,7 @@ public class Soura extends AppCompatActivity {
             }
         }
 
-
     }
+
+
 }

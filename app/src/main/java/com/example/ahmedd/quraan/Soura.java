@@ -1,15 +1,16 @@
 package com.example.ahmedd.quraan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.widget.TextView;
-
 import com.example.ahmedd.quraan.Adapters.SouraAdapter;
 import com.example.ahmedd.quraan.Model.ItemView;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -25,13 +26,14 @@ public class Soura extends AppCompatActivity {
     List<ItemView> itemViews;
     public static TextView innerTxtSouraName;
     public static String txtFile = "";
-
+    GestureDetector gestureDetector;
+    float x1, x2, y1, y2;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ayat_recycler);
 
-        LinearLayoutManager linearLayout  = new LinearLayoutManager(this);
+        LinearLayoutManager linearLayout = new LinearLayoutManager(this);
         itemViews = new ArrayList<>();
 
         innerTxtSouraName = (TextView) findViewById(R.id.innerTxtSouraName);
@@ -70,17 +72,37 @@ public class Soura extends AppCompatActivity {
             }
         }
 
-        for (int i =0; i<ayat.size(); i++){
-            ItemView itemView = new ItemView(null,ayat.get(i));
+        for (int i = 0; i < ayat.size(); i++) {
+            ItemView itemView = new ItemView(null, ayat.get(i));
 
             itemViews.add(itemView);
         }
 
-        adapter = new SouraAdapter(this,itemViews);
+        adapter = new SouraAdapter(this, itemViews);
         recyclerView.setAdapter(adapter);
+        gestureDetector = new GestureDetector(this, new MyGesture());
 
     }//onCreate
 
+    public boolean onTouchEvent(MotionEvent touchEvent) {
+        this.gestureDetector.onTouchEvent(touchEvent);
+        return super.onTouchEvent(touchEvent);
 
+    }
 
+class MyGesture extends GestureDetector.SimpleOnGestureListener{
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2,
+                           float velocityX, float velocityY) {
+
+        if (e2.getX() > e1.getX()){
+        onBackPressed();
+        }
+        if(e2.getX() < e1.getX()){
+
+        return false;
+        }
+        return true;
+    }
+}
 }

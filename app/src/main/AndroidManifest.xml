@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Soura"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/AppTheme.SlidrActivityTheme"></activity>
+
     </application>
 
 </manifest>

@@ -128,20 +128,4 @@ public class SouraName {
         return arrayName;
     }
 
-
-    public static void innerSouraName(){
-
-
-        switch (MainActivity.p){
-            case(0) : Soura.innerTxtSouraName.setText(souraName().get(0));
-            case(1) : Soura.innerTxtSouraName.setText(souraName().get(1));
-            case(2) : Soura.innerTxtSouraName.setText(souraName().get(2));
-
-        }
-
-
-    }
-
-
-
 }

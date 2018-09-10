@@ -18,10 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private SouraListAdapter adapter;
     private List<ItemView> list;
-    private ItemTouchHelper itemTouchHelper;
     public static int p = 0;
 
-    public static ItemView itemView;
+
     SouraName souraName;
 
     @Override

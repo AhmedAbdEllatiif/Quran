@@ -11,6 +11,8 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 import com.example.ahmedd.quraan.Adapters.SouraAdapter;
 import com.example.ahmedd.quraan.Model.ItemView;
+import com.r0adkll.slidr.Slidr;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -20,14 +22,11 @@ import java.util.List;
 
 public class Soura extends AppCompatActivity {
 
-    private TextView txtSoura;
     private RecyclerView recyclerView;
     private SouraAdapter adapter;
     List<ItemView> itemViews;
     public static TextView innerTxtSouraName;
     public static String txtFile = "";
-    GestureDetector gestureDetector;
-    float x1, x2, y1, y2;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,29 +79,9 @@ public class Soura extends AppCompatActivity {
 
         adapter = new SouraAdapter(this, itemViews);
         recyclerView.setAdapter(adapter);
-        gestureDetector = new GestureDetector(this, new MyGesture());
+        Slidr.attach(this);
+
 
     }//onCreate
 
-    public boolean onTouchEvent(MotionEvent touchEvent) {
-        this.gestureDetector.onTouchEvent(touchEvent);
-        return super.onTouchEvent(touchEvent);
-
-    }
-
-class MyGesture extends GestureDetector.SimpleOnGestureListener{
-    @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2,
-                           float velocityX, float velocityY) {
-
-        if (e2.getX() > e1.getX()){
-        onBackPressed();
-        }
-        if(e2.getX() < e1.getX()){
-
-        return false;
-        }
-        return true;
-    }
-}
 }

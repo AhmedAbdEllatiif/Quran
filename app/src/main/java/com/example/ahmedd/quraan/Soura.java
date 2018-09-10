@@ -1,31 +1,18 @@
 package com.example.ahmedd.quraan;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.method.ScrollingMovementMethod;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.ahmedd.quraan.Adapters.SouraAdapter;
-import com.example.ahmedd.quraan.Adapters.SouraListAdapter;
 import com.example.ahmedd.quraan.Model.ItemView;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +29,7 @@ public class Soura extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_soura);
+        setContentView(R.layout.ayat_recycler);
 
         LinearLayoutManager linearLayout  = new LinearLayoutManager(this);
         itemViews = new ArrayList<>();

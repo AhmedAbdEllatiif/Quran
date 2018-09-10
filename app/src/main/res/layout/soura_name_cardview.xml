@@ -5,9 +5,12 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="100dp"
-    app:cardCornerRadius="20dp"
+    app:cardCornerRadius="18dp"
     app:cardBackgroundColor="@color/fadewite"
-    android:layout_margin="15dp"
+    android:layout_marginTop="5dp"
+
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
     >
 
 
@@ -22,7 +25,7 @@
             android:layout_height="wrap_content"
             android:text="Name"
             android:textColor="@color/txtcolor"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="45sp"
             android:padding="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

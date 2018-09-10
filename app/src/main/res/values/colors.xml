@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="fadewite">#407c604e</color>
     <color name="txtcolor">#d8a954</color>
+    <color name="white">#fff</color>
 </resources>

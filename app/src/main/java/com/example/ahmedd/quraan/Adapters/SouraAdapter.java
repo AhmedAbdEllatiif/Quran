@@ -2,7 +2,6 @@ package com.example.ahmedd.quraan.Adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +40,7 @@ public class SouraAdapter extends RecyclerView.Adapter<SouraAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.ayah_,parent,false);
+                .inflate(R.layout.ayah_cardview,parent,false);
         return new ViewHolder(v);
     }
 

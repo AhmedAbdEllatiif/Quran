@@ -1,10 +1,13 @@
 package com.example.ahmedd.quraan;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
+
 import com.example.ahmedd.quraan.Adapters.SouraListAdapter;
 import com.example.ahmedd.quraan.Model.ItemView;
 import java.util.ArrayList;
@@ -15,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private SouraListAdapter adapter;
     private List<ItemView> list;
+    private ItemTouchHelper itemTouchHelper;
     public static int p = 0;
 
     public static ItemView itemView;
@@ -53,8 +57,17 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(Soura.txtFile,  position);
                 startActivity(intent);
 
+                new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT) {
+                    @Override
+                    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                        return false;
+                    }
 
+                    @Override
+                    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
+                    }
+                })
 
 
 /*

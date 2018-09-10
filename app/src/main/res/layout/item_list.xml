@@ -8,6 +8,7 @@
     app:cardCornerRadius="20dp"
     app:cardBackgroundColor="@color/fadewite"
     android:layout_margin="15dp"
+
     >
 
 

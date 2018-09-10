@@ -1,18 +1,15 @@
 package com.example.ahmedd.quraan;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.widget.TextView;
 import com.example.ahmedd.quraan.Adapters.SouraAdapter;
 import com.example.ahmedd.quraan.Model.ItemView;
 import com.r0adkll.slidr.Slidr;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -22,23 +19,27 @@ import java.util.List;
 
 public class Soura extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private SouraAdapter adapter;
-    List<ItemView> itemViews;
-    public static TextView innerTxtSouraName;
+    private List<ItemView> itemViews;
+    private TextView innerTxtSouraName;
     public static String txtFile = "";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ayat_recycler);
 
-        LinearLayoutManager linearLayout = new LinearLayoutManager(this);
-        itemViews = new ArrayList<>();
+        setupViews();
+        innerTxtSouraName.setText(MainActivity.inner);
+        fillRecyclerLineByLine();
+        Slidr.attach(this);
 
-        innerTxtSouraName = (TextView) findViewById(R.id.innerTxtSouraName);
-        recyclerView = (RecyclerView) findViewById(R.id.ayatRecycler);
-        recyclerView.setLayoutManager(linearLayout);
 
+
+
+
+    }//onCreate
+
+    @SuppressLint("WorldReadableFiles")
+    private void fillRecyclerLineByLine(){
         ArrayList<String> ayat = new ArrayList<>();
 
         InputStream fIn = null;
@@ -50,7 +51,7 @@ public class Soura extends AppCompatActivity {
                     .open(txtFile, Context.MODE_WORLD_READABLE);
             isr = new InputStreamReader(fIn);
             input = new BufferedReader(isr);
-            String line = "";
+            String line;
             int i = 1;
             while ((line = input.readLine()) != null) {
                 ayat.add(line + "(" + i + ")" + "\n");
@@ -77,11 +78,17 @@ public class Soura extends AppCompatActivity {
             itemViews.add(itemView);
         }
 
-        adapter = new SouraAdapter(this, itemViews);
+    }
+
+    private void setupViews(){
+        itemViews = new ArrayList<>();
+        LinearLayoutManager linearLayout = new LinearLayoutManager(this);
+        SouraAdapter adapter = new SouraAdapter(this, itemViews);
+
+        innerTxtSouraName = findViewById(R.id.innerTxtSouraName);
+        RecyclerView recyclerView = findViewById(R.id.ayatRecycler);
+        recyclerView.setLayoutManager(linearLayout);
         recyclerView.setAdapter(adapter);
-        Slidr.attach(this);
-
-
-    }//onCreate
+    }
 
 }

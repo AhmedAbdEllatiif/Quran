@@ -23,13 +23,13 @@ public class SouraAdapter extends RecyclerView.Adapter<SouraAdapter.ViewHolder> 
         this.context = context;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView txtAyah;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtAyah = (TextView) itemView.findViewById(R.id.txtAyah);
+            txtAyah = itemView.findViewById(R.id.txtAyah);
 
         }
     }

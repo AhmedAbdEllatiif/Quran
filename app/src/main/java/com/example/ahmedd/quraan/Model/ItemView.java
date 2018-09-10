@@ -2,8 +2,9 @@ package com.example.ahmedd.quraan.Model;
 
 public class ItemView {
 
-    String name ;
-    String ayah;
+    private String name ;
+    private String ayah;
+
     public ItemView(String name, String ayah) {
         this.name = name;
         this.ayah = ayah;
@@ -13,21 +14,15 @@ public class ItemView {
         this.name = string;
     }
 
-    public String getAyah() {
-        return ayah;
-    }
-
-    public void setAyah(String ayah) {
-        this.ayah = ayah;
-    }
-
-
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAyah() {
+        return ayah;
     }
 }

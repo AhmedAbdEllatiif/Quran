@@ -5,15 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
-
+import com.example.ahmedd.quraan.Adapters.SouraListAdapter;
+import com.example.ahmedd.quraan.Model.ItemView;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private MyAdapter adapter;
+    private SouraListAdapter adapter;
     private List<ItemView> list;
     public static int p = 0;
 
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         list = new ArrayList<>();
-        adapter = new MyAdapter(this, list);
+        adapter = new SouraListAdapter(this, list);
 
 
         for (int i=0; i<souraName.souraName().size(); i++ ){
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        adapter.setOnItemClickListener(new MyAdapter.onItemClickListener() {
+        adapter.setOnItemClickListener(new SouraListAdapter.onItemClickListener() {
             @Override
             public void onClick(int position, ItemView itemView) {
                 Intent intent = new Intent(MainActivity.this,Soura.class);

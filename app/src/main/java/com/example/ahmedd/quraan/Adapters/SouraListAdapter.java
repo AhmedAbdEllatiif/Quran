@@ -14,24 +14,29 @@ import com.example.ahmedd.quraan.R;
 
 import java.util.List;
 
-public class SouraAdapter extends RecyclerView.Adapter<SouraAdapter.ViewHolder> {
+public class SouraListAdapter extends RecyclerView.Adapter<SouraListAdapter.ViewHolder> {
     private List<ItemView> itemViews;
     private Context context;
+    onItemClickListener onItemClickListener;
 
+    public void setOnItemClickListener(onItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 
-    public SouraAdapter(Context context, List<ItemView> itemViews) {
+    public SouraListAdapter(Context context, List<ItemView> itemViews) {
         this.itemViews = itemViews;
         this.context = context;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView txtAyah;
+        TextView txtName;
+        CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtAyah = (TextView) itemView.findViewById(R.id.txtAyah);
-
+            txtName = (TextView) itemView.findViewById(R.id.txtName);
+            cardView = (CardView) itemView.findViewById(R.id.cardView);
         }
     }
 
@@ -41,7 +46,7 @@ public class SouraAdapter extends RecyclerView.Adapter<SouraAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.ayah_,parent,false);
+                .inflate(R.layout.item_list,parent,false);
         return new ViewHolder(v);
     }
 
@@ -50,9 +55,16 @@ public class SouraAdapter extends RecyclerView.Adapter<SouraAdapter.ViewHolder> 
 
 
         final ItemView itemView = itemViews.get(position);
-        holder.txtAyah.setText(itemView.getAyah());
+        holder.txtName.setText(itemView.getName());
 
-
+        if(onItemClickListener != null){
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onItemClickListener.onClick(position,itemView);
+                }
+            });
+        }
 
     }
 
@@ -61,7 +73,11 @@ public class SouraAdapter extends RecyclerView.Adapter<SouraAdapter.ViewHolder> 
         return itemViews.size();
     }
 
-//ViewHolder
 
+public interface onItemClickListener{
+
+      public   void onClick(int position,ItemView itemView);
+
+}
 
 }

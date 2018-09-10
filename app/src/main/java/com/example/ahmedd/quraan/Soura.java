@@ -11,48 +11,48 @@ import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.method.ScrollingMovementMethod;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.ahmedd.quraan.Adapters.SouraAdapter;
+import com.example.ahmedd.quraan.Adapters.SouraListAdapter;
+import com.example.ahmedd.quraan.Model.ItemView;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.Buffer;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Soura extends AppCompatActivity {
 
-    TextView txtSoura;
-    public ViewGroup.LayoutParams params;
+    private TextView txtSoura;
+    private RecyclerView recyclerView;
+    private SouraAdapter adapter;
+    List<ItemView> itemViews;
     public static TextView innerTxtSouraName;
-    private Paint paint;
-
-    SouraName souraName;
-    ArrayList<String> arrayName;
     public static String txtFile = "";
 
-    @SuppressLint("ResourceAsColor")
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soura);
 
-        innerTxtSouraName = (TextView) findViewById(R.id.innerTxtSouraName);
-        txtSoura = (TextView) findViewById(R.id.txtSoura);
-        txtSoura.setMovementMethod(new ScrollingMovementMethod());
-        paint = new Paint();
+        LinearLayoutManager linearLayout  = new LinearLayoutManager(this);
+        itemViews = new ArrayList<>();
 
-        //SouraName.innerSouraName();
-       /* switch (MainActivity.p){
-            case(0) : innerTxtSouraName.setText(arrayName.get(0));
-            case(1) : innerTxtSouraName.setText(arrayName.get(1));
-            case(3) : Soura.innerTxtSouraName.setText(arrayName.get(3));
-            case(4) : Soura.innerTxtSouraName.setText(arrayName.get(4));
-            case(5) : Soura.innerTxtSouraName.setText(arrayName.get(5));
-            case(6) : Soura.innerTxtSouraName.setText(arrayName.get(6));
-        }*/
+        innerTxtSouraName = (TextView) findViewById(R.id.innerTxtSouraName);
+        recyclerView = (RecyclerView) findViewById(R.id.ayatRecycler);
+        recyclerView.setLayoutManager(linearLayout);
+
+        ArrayList<String> ayat = new ArrayList<>();
+
         InputStream fIn = null;
         InputStreamReader isr = null;
         BufferedReader input = null;
@@ -65,7 +65,7 @@ public class Soura extends AppCompatActivity {
             String line = "";
             int i = 1;
             while ((line = input.readLine()) != null) {
-                txtSoura.append(line + "(" + i + ")" + "\n");
+                ayat.add(line + "(" + i + ")" + "\n");
                 i++;
             }
         } catch (Exception e) {
@@ -82,6 +82,16 @@ public class Soura extends AppCompatActivity {
                 e2.getMessage();
             }
         }
+
+        for (int i =0; i<ayat.size(); i++){
+            ItemView itemView = new ItemView(null,ayat.get(i));
+
+            itemViews.add(itemView);
+        }
+
+        adapter = new SouraAdapter(this,itemViews);
+        recyclerView.setAdapter(adapter);
+
     }//onCreate
 
 

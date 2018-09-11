@@ -13,9 +13,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public static String inner;
-
-
-
     SouraName souraName;
 
     @Override
@@ -50,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(Soura.txtFile,  position);
                 intent.putExtra(inner = SouraName.souraName().get(position), position);
                 startActivity(intent);
-
             }
         });
+
     recyclerView.setAdapter(adapter);
 
     }

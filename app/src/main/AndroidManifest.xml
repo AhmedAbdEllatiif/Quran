@@ -12,13 +12,14 @@
 
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
 
         <activity
             android:name=".Soura"
             android:theme="@style/AppTheme.SlidrActivityTheme" />
+
+
 
         <activity android:name=".Splash"
             android:theme="@style/Theme.AppCompat.NoActionBar">

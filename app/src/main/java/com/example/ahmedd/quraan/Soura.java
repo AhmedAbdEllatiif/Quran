@@ -31,12 +31,10 @@ public class Soura extends AppCompatActivity {
         innerTxtSouraName.setText(MainActivity.inner);
         fillRecyclerLineByLine();
         Slidr.attach(this);
-
-
-
-
-
+        
     }//onCreate
+
+
 
     @SuppressLint("WorldReadableFiles")
     private void fillRecyclerLineByLine(){

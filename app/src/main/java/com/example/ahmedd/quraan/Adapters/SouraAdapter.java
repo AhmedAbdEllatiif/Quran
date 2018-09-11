@@ -27,7 +27,7 @@ public class SouraAdapter extends RecyclerView.Adapter<SouraAdapter.ViewHolder> 
 
         TextView txtAyah;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtAyah = itemView.findViewById(R.id.txtAyah);
 

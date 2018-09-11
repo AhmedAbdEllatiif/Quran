@@ -17,7 +17,7 @@ import java.util.List;
 public class SouraListAdapter extends RecyclerView.Adapter<SouraListAdapter.ViewHolder> {
     private List<ItemView> itemViews;
     private Context context;
-    onItemClickListener onItemClickListener;
+    private onItemClickListener onItemClickListener;
 
     public void setOnItemClickListener(onItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
@@ -28,15 +28,15 @@ public class SouraListAdapter extends RecyclerView.Adapter<SouraListAdapter.View
         this.context = context;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView txtName;
         CardView cardView;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtName = (TextView) itemView.findViewById(R.id.txtName);
-            cardView = (CardView) itemView.findViewById(R.id.cardView);
+            txtName = itemView.findViewById(R.id.txtName);
+            cardView = itemView.findViewById(R.id.cardView);
         }
     }
 
@@ -76,7 +76,7 @@ public class SouraListAdapter extends RecyclerView.Adapter<SouraListAdapter.View
 
 public interface onItemClickListener{
 
-      public   void onClick(int position,ItemView itemView);
+      void onClick(int position, ItemView itemView);
 
 }
 

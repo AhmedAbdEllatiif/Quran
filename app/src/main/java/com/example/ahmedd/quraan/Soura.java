@@ -2,12 +2,12 @@ package com.example.ahmedd.quraan;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 import com.example.ahmedd.quraan.Adapters.SouraAdapter;
+import com.example.ahmedd.quraan.BaseActivities.BaseActivity;
 import com.example.ahmedd.quraan.Model.ItemView;
 import com.r0adkll.slidr.Slidr;
 import java.io.BufferedReader;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Soura extends AppCompatActivity {
+public class Soura extends BaseActivity {
 
     private List<ItemView> itemViews;
     private TextView innerTxtSouraName;
@@ -30,7 +30,7 @@ public class Soura extends AppCompatActivity {
         setupViews();
         innerTxtSouraName.setText(MainActivity.inner);
         fillRecyclerLineByLine();
-        Slidr.attach(this);
+        Slidr.attach(activity);
         
     }//onCreate
 
@@ -81,7 +81,7 @@ public class Soura extends AppCompatActivity {
     private void setupViews(){
         itemViews = new ArrayList<>();
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
-        SouraAdapter adapter = new SouraAdapter(this, itemViews);
+        SouraAdapter adapter = new SouraAdapter(activity, itemViews);
 
         innerTxtSouraName = findViewById(R.id.innerTxtSouraName);
         RecyclerView recyclerView = findViewById(R.id.ayatRecycler);

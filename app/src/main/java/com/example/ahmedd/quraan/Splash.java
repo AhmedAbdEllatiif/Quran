@@ -2,10 +2,11 @@ package com.example.ahmedd.quraan;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Splash extends AppCompatActivity {
+import com.example.ahmedd.quraan.BaseActivities.BaseActivity;
+
+public class Splash extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +16,7 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(Splash.this,MainActivity.class));
+                startActivity(new Intent(activity,FragmentContainerQuran.class));
                 finish();
             }
         },2500);

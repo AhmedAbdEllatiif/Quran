@@ -12,6 +12,11 @@
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/hadeath" />
 
+    <item
+        android:id="@+id/radio"
+        android:icon="@drawable/ic_radio"
+        android:title="@string/radio" />
+
 
 
 </menu>

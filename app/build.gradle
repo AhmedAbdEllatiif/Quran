@@ -36,4 +36,8 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.r0adkll:slidableactivity:2.0.6'
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+
+
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 }

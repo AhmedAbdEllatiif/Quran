@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.example.ahmedd.quraan.BaseActivities.BaseActivity;
 import com.example.ahmedd.quraan.Fragments.HadeathFragment;
 import com.example.ahmedd.quraan.Fragments.QuranFragment;
+import com.example.ahmedd.quraan.Fragments.RadioFragment;
 
 public class FragmentContainerQuran extends BaseActivity {
 
@@ -30,6 +31,9 @@ public class FragmentContainerQuran extends BaseActivity {
                 case R.id.ahadeath:
                     fragment = new HadeathFragment();
                   break;
+                case R.id.radio:
+                    fragment = new RadioFragment();
+                    break;
             }
 
             Log.e("Fragment", "Replacing Fragment");

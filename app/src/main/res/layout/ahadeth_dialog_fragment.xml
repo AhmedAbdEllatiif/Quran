@@ -31,10 +31,11 @@
     <TextView
         android:id="@+id/txtContent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="Content"
         android:textSize="25sp"
         android:textColor="@color/white"
+        android:gravity="center"
         android:layout_marginTop="10dp"
         android:layout_margin="7dp"
         />

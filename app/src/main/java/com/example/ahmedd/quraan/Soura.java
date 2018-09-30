@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 import com.example.ahmedd.quraan.Adapters.SouraAdapter;
 import com.example.ahmedd.quraan.BaseActivities.BaseActivity;
+import com.example.ahmedd.quraan.Fragments.QuranFragment;
 import com.example.ahmedd.quraan.Model.ItemView;
 import com.r0adkll.slidr.Slidr;
 import java.io.BufferedReader;
@@ -28,7 +29,7 @@ public class Soura extends BaseActivity {
         setContentView(R.layout.ayat_recycler);
 
         setupViews();
-        innerTxtSouraName.setText(MainActivity.inner);
+        innerTxtSouraName.setText(QuranFragment.inner);
         fillRecyclerLineByLine();
         Slidr.attach(activity);
         

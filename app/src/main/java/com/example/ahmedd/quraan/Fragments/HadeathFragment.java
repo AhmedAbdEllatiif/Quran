@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.example.ahmedd.quraan.Adapters.HadethAdapter;
 import com.example.ahmedd.quraan.BaseActivities.BaseFragment;
+import com.example.ahmedd.quraan.FragmentContainerQuran;
 import com.example.ahmedd.quraan.Model.HadethItemView;
 import com.example.ahmedd.quraan.R;
 
@@ -42,6 +43,9 @@ public class HadeathFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_hadeath, container, false);
+        FragmentContainerQuran.my_title.setText(R.string.hadeath);
+
+
         hadethItemViews = readHadethFile();
         recyclerView = view.findViewById(R.id.hadeth_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));

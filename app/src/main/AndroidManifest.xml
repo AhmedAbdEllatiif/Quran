@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
             android:name=".Soura"
             android:theme="@style/AppTheme.SlidrActivityTheme" />
         <activity

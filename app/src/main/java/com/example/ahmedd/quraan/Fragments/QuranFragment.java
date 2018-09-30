@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.ahmedd.quraan.Adapters.SouraListAdapter;
 import com.example.ahmedd.quraan.BaseActivities.BaseFragment;
+import com.example.ahmedd.quraan.FragmentContainerQuran;
 import com.example.ahmedd.quraan.Model.ItemView;
 import com.example.ahmedd.quraan.R;
 import com.example.ahmedd.quraan.Soura;
@@ -37,6 +38,7 @@ public class QuranFragment extends BaseFragment {
 
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_quran, container, false);
+        FragmentContainerQuran.my_title.setText(R.string.quran);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);

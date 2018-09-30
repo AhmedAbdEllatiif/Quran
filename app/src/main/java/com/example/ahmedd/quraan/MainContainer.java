@@ -14,7 +14,7 @@ import com.example.ahmedd.quraan.Fragments.HadeathFragment;
 import com.example.ahmedd.quraan.Fragments.QuranFragment;
 import com.example.ahmedd.quraan.Fragments.RadioFragment;
 
-public class FragmentContainerQuran extends BaseActivity {
+public class MainContainer extends BaseActivity {
 
 
     public static TextView my_title;
@@ -52,7 +52,7 @@ public class FragmentContainerQuran extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_container_quran);
+        setContentView(R.layout.activity_container_);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

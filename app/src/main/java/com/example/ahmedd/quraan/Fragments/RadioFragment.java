@@ -18,7 +18,7 @@ import com.example.ahmedd.quraan.API.Model.RadioItem;
 import com.example.ahmedd.quraan.API.Model.RadioResponse;
 import com.example.ahmedd.quraan.Adapters.RadioAdapter;
 import com.example.ahmedd.quraan.BaseActivities.BaseFragment;
-import com.example.ahmedd.quraan.FragmentContainerQuran;
+import com.example.ahmedd.quraan.MainContainer;
 import com.example.ahmedd.quraan.R;
 
 import java.io.IOException;
@@ -53,7 +53,7 @@ public class RadioFragment extends BaseFragment {
                              final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_radio, container, false);
-        FragmentContainerQuran.my_title.setText(R.string.radio);
+        MainContainer.my_title.setText(R.string.radio);
 
         radio_recyclerView = view.findViewById(R.id.radio_recyclerView);
         imgBtnPlay = view.findViewById(R.id.imgBtnPlay);

@@ -20,14 +20,14 @@
 
             <TextView
                 android:id="@+id/my_title"
-                android:text="Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:text="Title"
+                android:textSize="30sp"
+                android:textColor="@color/txtcolor"
                 android:gravity="center"
                 android:padding="2dp"
                 android:layout_gravity="center"
-                android:textColor="@color/white"
                 />
 
         </android.support.v7.widget.Toolbar>

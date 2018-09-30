@@ -72,5 +72,4 @@ public class QuranFragment extends BaseFragment {
     return view;
     }
 
-
 }

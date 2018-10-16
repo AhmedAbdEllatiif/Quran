@@ -45,8 +45,9 @@ public class SouraListAdapter extends RecyclerView.Adapter<SouraListAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.cardview_souraname_,parent,false);
+                .inflate(R.layout.cardview_souraname_, parent,false);
         return new ViewHolder(v);
     }
 

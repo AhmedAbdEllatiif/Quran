@@ -1,6 +1,28 @@
 apply plugin: 'com.android.application'
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.11.0, 0.99.99]'
+    }
+}
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 
+repositories {
+    maven { url 'https://maven.google.com' }
+}
 android {
+
+    android {
+        defaultConfig {
+            manifestPlaceholders = [
+                    onesignal_app_id: 'b59a0af7-d597-4a2e-96d7-38887bfff449',
+                    // Project number pulled from dashboard, local value is ignored.
+                    onesignal_google_project_number: 'REMOTE'
+            ]
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.ahmedd.quraan"
@@ -36,6 +58,9 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.r0adkll:slidableactivity:2.0.6'
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+
+
+    implementation 'com.onesignal:OneSignal:[3.9.1, 3.99.99]'
 
 
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'

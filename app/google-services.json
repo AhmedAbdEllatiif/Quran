@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "238296754016",
+    "firebase_url": "https://quraan-c2d51.firebaseio.com",
+    "project_id": "quraan-c2d51",
+    "storage_bucket": "quraan-c2d51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238296754016:android:5d2b208cf8d60c19",
+        "android_client_info": {
+          "package_name": "com.example.ahmedd.quraan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "238296754016-fbcbm8rul0834prtqaeqkaecbm0b31gi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ahmedd.quraan",
+            "certificate_hash": "de46b2b57da6d141ffd29c322178bba6b6df13a1"
+          }
+        },
+        {
+          "client_id": "238296754016-ru0uultju7523mvtheg6vbc1tbqblo2j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDSHdy-jtmBoea2pkFOTwM5rKU7Ij7j10"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "238296754016-ru0uultju7523mvtheg6vbc1tbqblo2j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".OneSignal.MyApplication">
         <activity
             android:name=".Soura"
             android:theme="@style/AppTheme.SlidrActivityTheme" />
@@ -27,6 +28,8 @@
             android:name=".MainContainer"
             android:label="@string/title_activity_test_fragment"
             android:theme="@style/AppTheme.bottomNavigation"></activity>
+
+        <meta-data android:name="com.onesignal.NotificationOpened.DEFAULT" android:value="DISABLE" />
     </application>
 
 </manifest>

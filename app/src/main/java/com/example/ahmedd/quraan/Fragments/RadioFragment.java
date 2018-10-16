@@ -60,23 +60,6 @@ public class RadioFragment extends BaseFragment {
         imgBtnStop = view.findViewById(R.id.imgBtnStop);
         getRadioChannels();
 
-        imgBtnPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                View view = snapHelper.findSnapView(linearLayoutManager);
-                int position = radio_recyclerView.getChildAdapterPosition(v);
-                playMediaPlayer(radioChannels.get(position).getURL());
-
-            }
-        });
-
-
-        imgBtnStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stopMediaPlayer();
-            }
-        });
 
 
 
@@ -118,6 +101,25 @@ public class RadioFragment extends BaseFragment {
             radio_recyclerView.setAdapter(adapter);
             snapHelper = new LinearSnapHelper();
             snapHelper.attachToRecyclerView(radio_recyclerView);
+
+        imgBtnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View view = snapHelper.findSnapView(linearLayoutManager);
+                int position = radio_recyclerView.getChildAdapterPosition(view);
+                playMediaPlayer(radioChannels.get(position).getURL());
+
+            }
+        });
+
+
+        imgBtnStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopMediaPlayer();
+            }
+        });
+
     }
 
     private void getRadioChannels(){

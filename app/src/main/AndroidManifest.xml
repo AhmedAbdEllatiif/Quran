@@ -29,7 +29,15 @@
             android:label="@string/title_activity_test_fragment"
             android:theme="@style/AppTheme.bottomNavigation"></activity>
 
-        <meta-data android:name="com.onesignal.NotificationOpened.DEFAULT" android:value="DISABLE" />
+        <!--OneSignal-->
+        <meta-data
+            android:name="com.onesignal.NotificationOpened.DEFAULT"
+            android:value="DISABLE" />
+
+        <!--Google AdMob-->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8926610076081506~2692840354"/>
     </application>
 
 </manifest>

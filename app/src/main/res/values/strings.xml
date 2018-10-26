@@ -1,4 +1,9 @@
 <resources>
+
+    <string name="AdMobID">ca-app-pub-8926610076081506~2692840354</string>
+    <string name="AdMobUnitID">ca-app-pub-8926610076081506/4711379472</string>
+    
+    
     <string name="app_name">Quran</string>
     <string name="title_activity_test_fragment">TestFragment</string>
     <string name="title_home">Home</string>
@@ -11,4 +16,6 @@
     <string name="hadeath">Hadeath</string>
     <string name="radio">Radio</string>
     <string name="hello">Hello</string>
+    
+    
 </resources>

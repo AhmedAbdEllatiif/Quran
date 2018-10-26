@@ -9,6 +9,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 
 public class BaseActivity extends AppCompatActivity {
 
+    protected static final String AdMobID = "ca-app-pub-8926610076081506~2692840354";
 
     protected MaterialDialog dialog;
     protected AppCompatActivity activity;

@@ -14,11 +14,13 @@ import com.example.ahmedd.quraan.Fragments.HadeathFragment;
 import com.example.ahmedd.quraan.Fragments.QuranFragment;
 import com.example.ahmedd.quraan.Fragments.RadioFragment;
 
+
 public class MainContainer extends BaseActivity {
 
 
     public static TextView my_title;
     private Toolbar toolbar;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -49,10 +51,14 @@ public class MainContainer extends BaseActivity {
         }
     };
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_container_);
+
+
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -65,6 +71,7 @@ public class MainContainer extends BaseActivity {
 
         my_title = (TextView) findViewById(R.id.my_title) ;
         my_title.setText(R.string.quran);
+
 
     }
 

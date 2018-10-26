@@ -7,7 +7,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 
 public class BaseFragment extends Fragment {
 
-
+    protected static final String AdMobID = "ca-app-pub-8926610076081506~2692840354";
     protected BaseActivity activity;
 
     @Override

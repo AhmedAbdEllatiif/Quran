@@ -82,9 +82,10 @@ public class QuranFragment extends BaseFragment {
             public void onClick(int position, ItemView itemView) {
 
                 Intent intent = new Intent(activity, Soura.class);
-                Soura.txtFile = (position + 1) + ".txt";
-                intent.putExtra(Soura.txtFile, position);
-                intent.putExtra(inner = SouraName.souraName().get(position), position);
+                intent.putExtra("txtFile", (position+1)+".txt" );
+                //intent.putExtra(inner = SouraName.souraName().get(position), position);
+                inner = SouraName.souraName().get(position);
+                intent.putExtra("InnerTitle", inner);
                 startActivity(intent);
             }
         });

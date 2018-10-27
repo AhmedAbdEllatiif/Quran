@@ -16,7 +16,7 @@ public class Splash extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(activity,MainContainer.class));
+                startActivity(new Intent(activity,FragmentsContainer.class));
                 finish();
             }
         },2500);

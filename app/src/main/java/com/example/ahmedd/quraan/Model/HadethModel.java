@@ -1,14 +1,14 @@
 package com.example.ahmedd.quraan.Model;
 
-public class HadethItemView {
+public class HadethModel {
 
     String title,content;
 
-    public HadethItemView() {
+    public HadethModel() {
     }
 
 
-    public HadethItemView(String title, String content) {
+    public HadethModel(String title, String content) {
         this.title = title;
         this.content = content;
     }

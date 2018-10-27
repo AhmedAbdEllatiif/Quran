@@ -9,20 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.ahmedd.quraan.Model.HadethItemView;
+import com.example.ahmedd.quraan.Model.HadethModel;
 import com.example.ahmedd.quraan.R;
 
 import java.util.ArrayList;
 
 public class HadethAdapter extends RecyclerView.Adapter<HadethAdapter.ViewHolder> {
 
-    ArrayList<HadethItemView> itemViews;
+    ArrayList<HadethModel> itemViews;
     Context context;
     onItemClickListener onCardClickListener;
 
 
 
-    public HadethAdapter(ArrayList<HadethItemView> itemViews, Context context) {
+    public HadethAdapter(ArrayList<HadethModel> itemViews, Context context) {
         this.itemViews = itemViews;
         this.context = context;
     }
@@ -56,7 +56,7 @@ public class HadethAdapter extends RecyclerView.Adapter<HadethAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
-        final HadethItemView itemView = itemViews.get(position);
+        final HadethModel itemView = itemViews.get(position);
 
         holder.txtHadethTitle.setText(itemView.getTitle());
 
@@ -80,7 +80,7 @@ public class HadethAdapter extends RecyclerView.Adapter<HadethAdapter.ViewHolder
 
     public interface onItemClickListener{
 
-        void onClick(int position, HadethItemView itemView);
+        void onClick(int position, HadethModel itemView);
     }
 
 }

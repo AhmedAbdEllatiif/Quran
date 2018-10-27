@@ -1,6 +1,8 @@
-package com.example.ahmedd.quraan.OneSignal;
+package com.example.ahmedd.quraan.Application;
 
 import android.app.Application;
+
+import com.example.ahmedd.quraan.OneSignal.MyCustomNotificationOpenedHandler;
 import com.onesignal.OneSignal;
 
 public class MyApplication extends Application {

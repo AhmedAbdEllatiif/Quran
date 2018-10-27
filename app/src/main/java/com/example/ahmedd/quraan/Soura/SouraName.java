@@ -1,4 +1,4 @@
-package com.example.ahmedd.quraan;
+package com.example.ahmedd.quraan.Soura;
 
 
 

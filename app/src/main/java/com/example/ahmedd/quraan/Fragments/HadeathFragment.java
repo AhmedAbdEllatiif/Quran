@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 
 import com.example.ahmedd.quraan.Adapters.HadethAdapter;
 import com.example.ahmedd.quraan.BaseActivities.BaseFragment;
-import com.example.ahmedd.quraan.MainContainer;
-import com.example.ahmedd.quraan.Model.HadethItemView;
+import com.example.ahmedd.quraan.FragmentsContainer;
+import com.example.ahmedd.quraan.Model.HadethModel;
 import com.example.ahmedd.quraan.R;
 
 import java.io.BufferedReader;
@@ -21,46 +21,36 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class HadeathFragment extends BaseFragment {
 
+    private View view;
 
-    public HadeathFragment() {
-        // Required empty public constructor
-    }
+    public HadeathFragment() {}
 
 
-    ArrayList<HadethItemView> hadethItemViews;
+    ArrayList<HadethModel> hadethModels;
     HadethAdapter adapter;
     RecyclerView recyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_hadeath, container, false);
-        MainContainer.my_title.setText(R.string.hadeath);
 
+        view = inflater.inflate(R.layout.fragment_hadeath, container, false);
+        FragmentsContainer.my_title.setText(R.string.hadeath);
 
-        hadethItemViews = readHadethFile();
-        recyclerView = view.findViewById(R.id.hadeth_recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-        adapter = new HadethAdapter(hadethItemViews,activity);
-        recyclerView.setAdapter(adapter);
-
-        myOnClickListeners();
+        setAdapter();
+        adapterOnClickListener();
 
 
     return view;
     }
 
-    private void myOnClickListeners(){
+    private void adapterOnClickListener(){
 
         adapter.setOnCardClickListener(new HadethAdapter.onItemClickListener() {
             @Override
-            public void onClick(int position, HadethItemView itemView) {
+            public void onClick(int position, HadethModel itemView) {
                 HadethDilaogFramgent dilaogFramgent = new HadethDilaogFramgent();
                 dilaogFramgent.setTitle(itemView.getTitle());
                 dilaogFramgent.setContent(itemView.getContent());
@@ -70,8 +60,17 @@ public class HadeathFragment extends BaseFragment {
         });
     }
 
-    private ArrayList<HadethItemView> readHadethFile(){
-        ArrayList<HadethItemView> hadethItemViews = new ArrayList<>();
+    private void setAdapter(){
+        hadethModels = readHadethFile();
+        recyclerView = view.findViewById(R.id.hadeth_recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        adapter = new HadethAdapter(hadethModels,activity);
+        recyclerView.setAdapter(adapter);
+
+    }
+
+    private ArrayList<HadethModel> readHadethFile(){
+        ArrayList<HadethModel> hadethModels = new ArrayList<>();
 
 
         InputStream inputStream = null;
@@ -85,7 +84,7 @@ public class HadeathFragment extends BaseFragment {
 
             String line;
             while ((line = bufferedReader.readLine()) != null){
-                HadethItemView itemView = new HadethItemView();
+                HadethModel itemView = new HadethModel();
                 itemView.setTitle(line);
                while((line = bufferedReader.readLine()) != null){
                    if (line.equals("#")){
@@ -93,7 +92,7 @@ public class HadeathFragment extends BaseFragment {
                    }
                    itemView.setContent(itemView.getContent() + "\n" + line);
                }
-                hadethItemViews.add(itemView);
+                hadethModels.add(itemView);
             }
 
 
@@ -111,7 +110,7 @@ public class HadeathFragment extends BaseFragment {
                 e2.getMessage();
             }
         }
-            return hadethItemViews;
+            return hadethModels;
     }
 
 }

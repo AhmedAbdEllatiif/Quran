@@ -8,18 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.ahmedd.quraan.Model.ItemView;
+import com.example.ahmedd.quraan.Model.SouraModel;
 import com.example.ahmedd.quraan.R;
 
 import java.util.List;
 
 public class SouraAdapter extends RecyclerView.Adapter<SouraAdapter.ViewHolder> {
-    private List<ItemView> itemViews;
+    private List<SouraModel> souraModels;
     private Context context;
 
 
-    public SouraAdapter(Context context, List<ItemView> itemViews) {
-        this.itemViews = itemViews;
+    public SouraAdapter(Context context, List<SouraModel> souraModels) {
+        this.souraModels = souraModels;
         this.context = context;
     }
 
@@ -48,8 +48,8 @@ public class SouraAdapter extends RecyclerView.Adapter<SouraAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
 
-        final ItemView itemView = itemViews.get(position);
-        holder.txtAyah.setText(itemView.getAyah());
+        final SouraModel souraModel = souraModels.get(position);
+        holder.txtAyah.setText(souraModel.getAyah());
 
 
 
@@ -57,7 +57,7 @@ public class SouraAdapter extends RecyclerView.Adapter<SouraAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return itemViews.size();
+        return souraModels.size();
     }
 
 //ViewHolder

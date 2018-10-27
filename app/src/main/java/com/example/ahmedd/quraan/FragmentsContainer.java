@@ -15,19 +15,17 @@ import com.example.ahmedd.quraan.Fragments.QuranFragment;
 import com.example.ahmedd.quraan.Fragments.RadioFragment;
 
 
-public class MainContainer extends BaseActivity {
+public class FragmentsContainer extends BaseActivity {
 
 
     public static TextView my_title;
     private Toolbar toolbar;
+    private Fragment fragment;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-
-
-        Fragment fragment;
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {

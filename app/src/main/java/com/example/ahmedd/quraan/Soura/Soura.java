@@ -1,4 +1,4 @@
-package com.example.ahmedd.quraan;
+package com.example.ahmedd.quraan.Soura;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,7 +10,8 @@ import android.widget.TextView;
 
 import com.example.ahmedd.quraan.Adapters.SouraAdapter;
 import com.example.ahmedd.quraan.BaseActivities.BaseActivity;
-import com.example.ahmedd.quraan.Model.ItemView;
+import com.example.ahmedd.quraan.Model.SouraModel;
+import com.example.ahmedd.quraan.R;
 import com.r0adkll.slidr.Slidr;
 
 import java.io.BufferedReader;
@@ -22,7 +23,7 @@ import java.util.List;
 
 public class Soura extends BaseActivity {
 
-    private List<ItemView> itemViews;
+    private List<SouraModel> souraModels;
     private TextView innerTxtSouraName;
     private String innerTitle;
     private String txtFile;
@@ -38,7 +39,7 @@ public class Soura extends BaseActivity {
 
     }//onCreate
 
-//dsdsgdsgdsgdsgs
+
     private void setInnerTitle() {
         if (getIntent().getStringExtra("InnerTitle") != null) {
             Log.e("InnerTitle", "Put extra From QuranFragment Succeed");
@@ -89,16 +90,16 @@ public class Soura extends BaseActivity {
         }
 
         for (int i = 0; i < ayat.size(); i++) {
-            ItemView itemView = new ItemView(null, ayat.get(i));
-            itemViews.add(itemView);
+            SouraModel souraModel = new SouraModel(null, ayat.get(i));
+            souraModels.add(souraModel);
         }
 
     }
 
     private void setupViews() {
-        itemViews = new ArrayList<>();
+        souraModels = new ArrayList<>();
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
-        SouraAdapter adapter = new SouraAdapter(activity, itemViews);
+        SouraAdapter adapter = new SouraAdapter(activity, souraModels);
 
         innerTxtSouraName = findViewById(R.id.innerTxtSouraName);
         RecyclerView recyclerView = findViewById(R.id.ayatRecycler);

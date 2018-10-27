@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".OneSignal.MyApplication">
+        android:name=".Application.MyApplication">
         <activity
-            android:name=".Soura"
+            android:name=".Soura.Soura"
             android:theme="@style/AppTheme.SlidrActivityTheme" />
         <activity
             android:name=".Splash"
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainContainer"
+            android:name=".FragmentsContainer"
             android:label="@string/title_activity_test_fragment"
             android:theme="@style/AppTheme.bottomNavigation"></activity>
 

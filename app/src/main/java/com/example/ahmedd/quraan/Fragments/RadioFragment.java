@@ -18,7 +18,7 @@ import com.example.ahmedd.quraan.API.Model.RadioItem;
 import com.example.ahmedd.quraan.API.Model.RadioResponse;
 import com.example.ahmedd.quraan.Adapters.RadioAdapter;
 import com.example.ahmedd.quraan.BaseActivities.BaseFragment;
-import com.example.ahmedd.quraan.MainContainer;
+import com.example.ahmedd.quraan.FragmentsContainer;
 import com.example.ahmedd.quraan.R;
 
 import java.io.IOException;
@@ -29,39 +29,34 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class RadioFragment extends BaseFragment {
 
 
+    private View view;
     private List<RadioItem> radioChannels = new ArrayList<>();
     private RadioAdapter adapter;
     private RecyclerView radio_recyclerView;
     private LinearLayoutManager linearLayoutManager;
-    private SnapHelper snapHelper;
+    private SnapHelper  snapHelper;
     private ImageButton imgBtnPlay;
     private ImageButton imgBtnStop;
     private MediaPlayer mediaPlayer;
-    public RadioFragment() {
-        // Required empty public constructor
-    }
+
+
+    public RadioFragment() {}
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_radio, container, false);
-        MainContainer.my_title.setText(R.string.radio);
 
-        radio_recyclerView = view.findViewById(R.id.radio_recyclerView);
+        view = inflater.inflate(R.layout.fragment_radio, container, false);
+        FragmentsContainer.my_title.setText(R.string.radio);
+
         imgBtnPlay = view.findViewById(R.id.imgBtnPlay);
         imgBtnStop = view.findViewById(R.id.imgBtnStop);
+
         getRadioChannels();
-
-
-
 
         return view;
     }
@@ -97,6 +92,7 @@ public class RadioFragment extends BaseFragment {
         linearLayoutManager =
                 new LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false);
             adapter = new RadioAdapter(radioChannels);
+            radio_recyclerView = view.findViewById(R.id.radio_recyclerView);
             radio_recyclerView.setLayoutManager(linearLayoutManager);
             radio_recyclerView.setAdapter(adapter);
             snapHelper = new LinearSnapHelper();

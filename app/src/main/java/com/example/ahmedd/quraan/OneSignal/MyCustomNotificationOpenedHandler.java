@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.example.ahmedd.quraan.MainContainer;
+import com.example.ahmedd.quraan.FragmentsContainer;
 import com.onesignal.OSNotificationAction;
 import com.onesignal.OSNotificationOpenResult;
 import com.onesignal.OneSignal;
@@ -34,7 +34,7 @@ public class MyCustomNotificationOpenedHandler implements OneSignal.Notification
         if (actionType == OSNotificationAction.ActionType.ActionTaken)
             Log.i("OneSignalExample", "Button pressed with id: " + result.action.actionID);
 
-         Intent intent = new Intent(ApplicationContext, MainContainer.class);
+         Intent intent = new Intent(ApplicationContext, FragmentsContainer.class);
          intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
             ApplicationContext.startActivity(intent);
 

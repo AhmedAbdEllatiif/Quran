@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.ahmedd.quraan.Model.ItemView;
+import com.example.ahmedd.quraan.Model.SouraModel;
 import com.example.ahmedd.quraan.R;
 
 import java.util.List;
 
 public class SouraListAdapter extends RecyclerView.Adapter<SouraListAdapter.ViewHolder> {
-    private List<ItemView> itemViews;
+    private List<SouraModel> souraModels;
     private Context context;
     private onItemClickListener onItemClickListener;
 
@@ -23,8 +23,8 @@ public class SouraListAdapter extends RecyclerView.Adapter<SouraListAdapter.View
         this.onItemClickListener = onItemClickListener;
     }
 
-    public SouraListAdapter(Context context, List<ItemView> itemViews) {
-        this.itemViews = itemViews;
+    public SouraListAdapter(Context context, List<SouraModel> souraModels) {
+        this.souraModels = souraModels;
         this.context = context;
     }
 
@@ -55,14 +55,14 @@ public class SouraListAdapter extends RecyclerView.Adapter<SouraListAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
 
-        final ItemView itemView = itemViews.get(position);
-        holder.txtName.setText(itemView.getName());
+        final SouraModel souraModel = souraModels.get(position);
+        holder.txtName.setText(souraModel.getName());
 
         if(onItemClickListener != null){
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    onItemClickListener.onClick(position,itemView);
+                    onItemClickListener.onClick(position, souraModel);
                 }
             });
         }
@@ -71,13 +71,13 @@ public class SouraListAdapter extends RecyclerView.Adapter<SouraListAdapter.View
 
     @Override
     public int getItemCount() {
-        return itemViews.size();
+        return souraModels.size();
     }
 
 
 public interface onItemClickListener{
 
-      void onClick(int position, ItemView itemView);
+      void onClick(int position, SouraModel souraModel);
 
 }
 

@@ -11,11 +11,11 @@ import android.view.ViewGroup;
 
 import com.example.ahmedd.quraan.Adapters.SouraListAdapter;
 import com.example.ahmedd.quraan.BaseActivities.BaseFragment;
-import com.example.ahmedd.quraan.MainContainer;
-import com.example.ahmedd.quraan.Model.ItemView;
+import com.example.ahmedd.quraan.FragmentsContainer;
+import com.example.ahmedd.quraan.Model.SouraModel;
 import com.example.ahmedd.quraan.R;
-import com.example.ahmedd.quraan.Soura;
-import com.example.ahmedd.quraan.SouraName;
+import com.example.ahmedd.quraan.Soura.Soura;
+import com.example.ahmedd.quraan.Soura.SouraName;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -27,23 +27,18 @@ import java.util.List;
 public class QuranFragment extends BaseFragment {
 
     public static String inner;
-    private List<ItemView> list;
+    private List<SouraModel> list;
     private SouraListAdapter adapter;
     private View view;
 
     public QuranFragment() {}
 
-
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        MobileAds.initialize(activity, AdMobID);
-
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_quran, container, false);
-        MainContainer.my_title.setText(R.string.quran);
+        FragmentsContainer.my_title.setText(R.string.quran);
 
         getAllItems();
         setAdapter();
@@ -65,8 +60,8 @@ public class QuranFragment extends BaseFragment {
     private void getAllItems() {
         list = new ArrayList<>();
         for (int i = 0; i < SouraName.souraName().size(); i++) {
-            ItemView itemView = new ItemView(SouraName.souraName().get(i) + " (" + (i + 1) + ")");
-            list.add(itemView);
+            SouraModel souraModel = new SouraModel(SouraName.souraName().get(i) + " (" + (i + 1) + ")");
+            list.add(souraModel);
         }
     }
 
@@ -74,12 +69,13 @@ public class QuranFragment extends BaseFragment {
         AdView mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        MobileAds.initialize(activity, AdMobID);
     }
 
     private void adapterOnClickListener() {
         adapter.setOnItemClickListener(new SouraListAdapter.onItemClickListener() {
             @Override
-            public void onClick(int position, ItemView itemView) {
+            public void onClick(int position, SouraModel souraModel) {
 
                 Intent intent = new Intent(activity, Soura.class);
                 intent.putExtra("txtFile", (position+1)+".txt" );

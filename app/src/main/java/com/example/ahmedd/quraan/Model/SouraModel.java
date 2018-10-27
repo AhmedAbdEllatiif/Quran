@@ -1,16 +1,16 @@
 package com.example.ahmedd.quraan.Model;
 
-public class ItemView {
+public class SouraModel {
 
     private String name ;
     private String ayah;
 
-    public ItemView(String name, String ayah) {
+    public SouraModel(String name, String ayah) {
         this.name = name;
         this.ayah = ayah;
     }
 
-    public ItemView(String string) {
+    public SouraModel(String string) {
         this.name = string;
     }
 
